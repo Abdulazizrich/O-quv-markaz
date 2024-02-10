@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tahrirlash</h1>
+<form method="post">
+    {%csrf_token%}
+    <label>Ismi:</label><br>
+    <input type="text" name="ism" value="{{oquvchi.ism}}"><br> <br>
+     <label>Tel:</label><br><br>
+     <input type="text" name="tel_raqam" value="{{oquvchi.tel_raqam}}"><br> <br>
+    <label>Guruh:</label><br><br>
+    <select name="guruh">
+        {% for gur in guruh %}
+        <option value="{{gur.id}}">{{gur.nom}}</option>
+        {%endfor%}
+    </select>
+    <button type="submit">Tahrirlash</button>
+</form>
+</body>
+</html>

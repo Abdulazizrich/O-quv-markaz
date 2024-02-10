@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tahrirlash</h1>
+<form method="post">
+    {%csrf_token%}
+    <label>Nom:</label><br>
+    <input type="text" name="nom" value="{{guruh.nom}}"><br> <br>
+     <label>Yonalish:</label><br><br>
+     <select name="yonalish">
+        {% for yon in yonalish %}
+        <option value="{{yon.id}}">{{yon.nom}}</option>
+        {%endfor%}
+    </select>
+    <label>Ustoz:</label><br><br>
+     <select name="ustoz">
+        {% for us in ustoz %}
+        <option value="{{us.id}}">{{us.ism}}</option>
+        {%endfor%}
+    </select>
+    <label>Xona:</label><br><br>
+     <select name="xona">
+        {% for xon in xona %}
+        <option value="{{xon.id}}">{{xon.nom}}</option>
+        {%endfor%}
+    </select>
+    <label>Ochilgan sana:</label><br>
+    <input type="date" name="ochilgan_sana" value="{{guruh.ochilgan_sana}}"><br> <br>
+     <label>Dars vaqti:</label><br>
+    <input type="text" name="dars_vaqti" value="{{guruh.dars_vaqti}}"><br> <br>
+    <button type="submit">Tahrirlash</button>
+</form>
+</body>
+</html>

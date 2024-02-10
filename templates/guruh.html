@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<hr>
+<br>
+<h1>Hamma guruhlar ro'yhati</h1>
+<br>
+<hr>
+<br>
+{% for gur in guruh %}
+<h2>Nom:{{gur.nom}}, Yonalish:{{gur.yonalish}},  Ustoz:{{gur.ustoz}}
+    <a href="/guruh/{{ gur.id }}/tahrirlash/">
+        <button>Tahrirlash</button>
+    </a>
+     <a href="/guruh/{{ gur.id }}/ochir/">
+        <button>O'chirish</button>
+    </a>
+    {% endfor %}
+</h2>
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Qo'shish</button>
+</form>
+</body>
+</html>

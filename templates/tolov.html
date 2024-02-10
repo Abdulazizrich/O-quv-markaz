@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<hr>
+<br>
+<h1>Hamma tolovlar ro'yhati</h1>
+<br>
+<hr>
+<br>
+{% for pay in tolov %}
+    <h2>{{pay.oquvchi}},{{pay.guruh}},{{pay.chegirma}}
+ <a href="/tolov/{{ pay.id }}/tahrirlash/">
+        <button>Tahrirlash</button>
+    </a>
+        <a href="/tolov/{{ pay.id }}/ochir/">
+        <button>O'chirish</button>
+    </a>
+    {% endfor %}</h2>
+<br>
+    <form method="post">
+        {% csrf_token %}
+        <label>Oquvchi:</label><br><br>
+    <select name="oquvchi">
+        {% for oquv in oquvchilar %}
+        <option value="{{oquv.id}}">{{oquv.ism}}</option>
+        {%endfor%}
+    </select>
+        <label>Guruh:</label><br><br>
+        <select name="guruh">
+        {% for guruh in guruhlar %}
+        <option value="{{guruh.id}}">{{guruh.nom}}</option>
+        {%endfor%}
+    </select>
+     <label>Tolov: </label>
+    <input type="number" name="tolov_summasi" placeholder="" min="1">
+    <label>Qarz: </label>
+    <input type="number" name="qarz" placeholder="" min="1">
+    <label>Chegirma: </label>
+    <input type="number" name="chegirma" placeholder="" min="1">
+        <button type="submit">Qo'shish</button>
+    </form>
+</body>
+</html>

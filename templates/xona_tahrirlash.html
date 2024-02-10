@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tahrirlash</h1>
+<form method="post">
+    {%csrf_token%}
+     <label>Nom:</label><br>
+    <input type="text" name="nom" value="{{xona.nom}}"><br> <br>
+    <label>Raqam:</label><br>
+    <input type="number" name="raqam" value="{{xona.raqam}}"><br> <br>
+    <button type="submit">Tahrirlash</button>
+</body>
+</html>
